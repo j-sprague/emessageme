@@ -25,6 +25,8 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import edu.uncc.emessageme.databinding.FragmentMessagesBinding;
 import edu.uncc.emessageme.databinding.MessageRowItemBinding;
@@ -88,6 +90,14 @@ public class MessagesFragment extends Fragment {
                             Message msg = document.toObject(Message.class);
                             mMessages.add(msg);
                         }
+                        Collections.sort(mMessages, new Comparator<Message>() {
+                            @Override
+                            public int compare(Message o1, Message o2) {
+                                if (o1.getSentAt() == null || o2.getSentAt() == null)
+                                    return 0;
+                                return o2.getSentAt().compareTo(o1.getSentAt());
+                            }
+                        });
                         adapter.notifyDataSetChanged();
                     }
                 });

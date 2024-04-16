@@ -11,7 +11,9 @@ import edu.uncc.emessageme.auth.RegisterFragment;
 import edu.uncc.emessageme.models.Message;
 import edu.uncc.emessageme.models.User;
 
-public class MainActivity extends AppCompatActivity implements LoginFragment.LoginListener, RegisterFragment.SignUpListener, MessagesFragment.MessagesListener, ComposeFragment.ComposeListener, SelectRecipientFragment.RecipientListener {
+public class MainActivity extends AppCompatActivity implements LoginFragment.LoginListener,
+        RegisterFragment.SignUpListener, MessagesFragment.MessagesListener, ComposeFragment.ComposeListener,
+        SelectRecipientFragment.RecipientListener, MessageFragment.MessageListener, ResponseFragment.ResponseListener {
 
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
@@ -79,6 +81,21 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
     @Override
     public void cancel() {
         getSupportFragmentManager().popBackStack();
+    }
+
+    @Override
+    public void gotoResponse(Message msg) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.containerView, ResponseFragment.newInstance(msg))
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void backtoInbox() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.containerView, new MessagesFragment())
+                .commit();
     }
 
     @Override

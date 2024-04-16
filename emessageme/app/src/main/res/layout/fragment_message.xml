@@ -8,34 +8,50 @@
     tools:context=".MessageFragment" >
 
     <TextView
-        android:id="@+id/textViewSubject"
+        android:id="@+id/textViewDatetime"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
-        android:text="Subject"
-        android:textSize="20sp"
+        android:text="--/--/-- --:-- --"
+        android:textSize="16sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewFrom" />
 
     <TextView
+        android:id="@+id/textViewSubject"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:text="Subject"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDatetime" />
+
+    <TextView
         android:id="@+id/textViewBody"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="32dp"
+        android:scrollbars="vertical"
         android:text="Body"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/textViewRead"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTo" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewSubject" />
 
     <TextView
         android:id="@+id/textViewFrom"
@@ -51,19 +67,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTo" />
 
-    <TextView
-        android:id="@+id/userWelcome"
-        android:layout_width="0dp"
-        android:layout_height="64dp"
-        android:layout_marginTop="4dp"
-        android:gravity="center"
-        android:text="View Message"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/imageReply"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imageTrash"
         android:layout_width="64dp"
@@ -71,7 +74,7 @@
         android:layout_marginEnd="30dp"
         android:src="@drawable/trash"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/userWelcome" />
+        tools:layout_editor_absoluteY="4dp" />
 
     <ImageView
         android:id="@+id/imageReply"
@@ -80,30 +83,58 @@
         android:layout_marginEnd="30dp"
         android:src="@drawable/reply"
         app:layout_constraintEnd_toStartOf="@+id/imageTrash"
-        app:layout_constraintTop_toTopOf="@+id/userWelcome" />
+        tools:layout_editor_absoluteY="4dp" />
 
     <TextView
         android:id="@+id/textViewTo"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="8dp"
         android:text="To: "
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/userWelcome" />
+        app:layout_constraintTop_toBottomOf="@+id/imageReply" />
 
     <TextView
         android:id="@+id/textViewRead"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
         android:layout_marginBottom="20dp"
         android:text="@string/unread"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonOriginal"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonBack"
+        android:layout_width="120dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="@+id/imageReply"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="214dp" />
+
+    <Button
+        android:id="@+id/buttonOriginal"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="View Original"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
