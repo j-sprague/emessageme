@@ -15,6 +15,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import edu.uncc.emessageme.R;
 import edu.uncc.emessageme.databinding.FragmentRegisterBinding;
@@ -74,8 +79,21 @@ public class RegisterFragment extends Fragment {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if(task.isSuccessful()){
-                                                Toast.makeText(getActivity(), "Account created successfully!", Toast.LENGTH_SHORT).show();
-                                                mListener.authCompleted();
+                                                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                                                DocumentReference docRef = db.collection("users").document(mAuth.getCurrentUser().getUid());
+                                                HashMap<String,Object> data = new HashMap<>();
+                                                ArrayList<String> blocked = new ArrayList<>();
+                                                data.put("name",mAuth.getCurrentUser().getDisplayName());
+                                                data.put("uid",mAuth.getCurrentUser().getUid());
+                                                data.put("blocked",blocked);
+                                                docRef.set(data).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        Toast.makeText(getActivity(), "Account created successfully!", Toast.LENGTH_SHORT).show();
+                                                        mListener.authCompleted();
+                                                    }
+                                                });
+
                                             } else {
                                                 Toast.makeText(getActivity(), "Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                             }

@@ -11,36 +11,62 @@
         android:id="@+id/userWelcome"
         android:layout_width="0dp"
         android:layout_height="64dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:gravity="center"
         android:text="Welcome, Test User!"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/address"
-        tools:layout_editor_absoluteX="21dp"
-        tools:layout_editor_absoluteY="96dp" />
-
-    <ImageView
-        android:id="@+id/imageView2"
+    <Button
+        android:id="@+id/logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/mail"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="227dp" />
+        android:layout_marginEnd="8dp"
+        android:text="Sign Out"
+        app:layout_constraintBottom_toBottomOf="@+id/searchImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/searchImage"
+        app:layout_constraintTop_toBottomOf="@+id/userWelcome" />
 
     <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/composeImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
         android:src="@drawable/new_message"
-        tools:layout_editor_absoluteX="246dp"
-        tools:layout_editor_absoluteY="107dp" />
+        app:layout_constraintStart_toEndOf="@+id/addressImage"
+        app:layout_constraintTop_toBottomOf="@+id/userWelcome" />
+
+    <ImageView
+        android:id="@+id/addressImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/address"
+        app:layout_constraintEnd_toStartOf="@+id/composeImage"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userWelcome" />
+
+    <ImageView
+        android:id="@+id/searchImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/search"
+        app:layout_constraintStart_toEndOf="@+id/composeImage"
+        app:layout_constraintTop_toBottomOf="@+id/userWelcome" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
