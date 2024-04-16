@@ -121,6 +121,12 @@ public class MessagesFragment extends Fragment {
                 mListener.gotoAddress();
             }
         });
+        binding.searchImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.gotoSearch();
+            }
+        });
     }
 
     MessagesListener mListener;
@@ -134,6 +140,7 @@ public class MessagesFragment extends Fragment {
     interface MessagesListener {
         void logout();
         void gotoCompose();
+        void gotoSearch();
         void gotoMessage(Message msg);
         void gotoAddress();
     }

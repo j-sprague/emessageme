@@ -13,7 +13,8 @@ import edu.uncc.emessageme.models.User;
 
 public class MainActivity extends AppCompatActivity implements LoginFragment.LoginListener,
         RegisterFragment.SignUpListener, MessagesFragment.MessagesListener, ComposeFragment.ComposeListener,
-        SelectRecipientFragment.RecipientListener, MessageFragment.MessageListener, ResponseFragment.ResponseListener, AddressBookFragment.AddressBookListener {
+        SelectRecipientFragment.RecipientListener, MessageFragment.MessageListener, ResponseFragment.ResponseListener, AddressBookFragment.AddressBookListener,
+        SearchFragment.SearchListener {
 
     FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
@@ -59,6 +60,14 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
     public void gotoCompose() {
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.containerView, new ComposeFragment(), "compose-fragment")
+                .addToBackStack(null)
+                .commit();
+    }
+
+    @Override
+    public void gotoSearch() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.containerView, new SearchFragment())
                 .addToBackStack(null)
                 .commit();
     }
