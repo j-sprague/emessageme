@@ -8,6 +8,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import edu.uncc.emessageme.auth.LoginFragment;
 import edu.uncc.emessageme.auth.RegisterFragment;
+import edu.uncc.emessageme.models.Message;
 import edu.uncc.emessageme.models.User;
 
 public class MainActivity extends AppCompatActivity implements LoginFragment.LoginListener, RegisterFragment.SignUpListener, MessagesFragment.MessagesListener, ComposeFragment.ComposeListener, SelectRecipientFragment.RecipientListener {
@@ -88,4 +89,13 @@ public class MainActivity extends AppCompatActivity implements LoginFragment.Log
         }
         getSupportFragmentManager().popBackStack();
     }
+
+    @Override
+    public void gotoMessage(Message msg) {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.containerView, MessageFragment.newInstance(msg))
+                .addToBackStack(null)
+                .commit();
+    }
+
 }

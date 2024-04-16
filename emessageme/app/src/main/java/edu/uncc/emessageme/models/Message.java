@@ -2,7 +2,10 @@ package edu.uncc.emessageme.models;
 
 import com.google.firebase.Timestamp;
 
-public class Message {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class Message implements Serializable {
 
     String senderId, senderName, receiverId, receiverName, subject, text, replyTo, messageId;
 

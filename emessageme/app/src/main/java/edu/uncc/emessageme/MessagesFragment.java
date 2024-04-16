@@ -118,6 +118,7 @@ public class MessagesFragment extends Fragment {
     interface MessagesListener {
         void logout();
         void gotoCompose();
+        void gotoMessage(Message msg);
     }
 
 
@@ -146,6 +147,12 @@ public class MessagesFragment extends Fragment {
             public MessageViewHolder(MessageRowItemBinding itemBinding) {
                 super(itemBinding.getRoot());
                 this.itemBinding = itemBinding;
+                this.itemBinding.getRoot().setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mListener.gotoMessage(mMessage);
+                    }
+                });
             }
 
 
