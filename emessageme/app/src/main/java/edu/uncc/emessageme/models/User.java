@@ -1,10 +1,13 @@
 package edu.uncc.emessageme.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class User implements Serializable {
 
     String uid, name;
+
+    ArrayList<String> blocked;
 
     public String getUid() {
         return uid;
@@ -34,5 +37,13 @@ public class User implements Serializable {
 
     public User() {
 
+    }
+
+    public ArrayList<String> getBlocked() {
+        return blocked;
+    }
+
+    public void setBlocked(ArrayList<String> blocked) {
+        this.blocked = blocked;
     }
 }

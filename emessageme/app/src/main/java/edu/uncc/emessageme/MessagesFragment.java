@@ -115,6 +115,12 @@ public class MessagesFragment extends Fragment {
                 mListener.gotoCompose();
             }
         });
+        binding.addressImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListener.gotoAddress();
+            }
+        });
     }
 
     MessagesListener mListener;
@@ -129,6 +135,7 @@ public class MessagesFragment extends Fragment {
         void logout();
         void gotoCompose();
         void gotoMessage(Message msg);
+        void gotoAddress();
     }
 
 
