@@ -140,7 +140,7 @@ public class SearchFragment extends Fragment {
                         }
                     });
         } else {
-            Toast.makeText(getActivity(), term, Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getActivity(), term, Toast.LENGTH_SHORT).show();
             db.collection("users").document(mAuth.getCurrentUser().getUid())
                     .collection("messages")
                     .whereGreaterThanOrEqualTo("subject", term)
