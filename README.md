@@ -1,9 +1,8 @@
 # emessageme
 Android Email-Like Messaging app powered by Firebase
 
-Developed for Mobile Application Development, Spring 2024
 
-## Requirements: 
+## Requirements
 
 * Mailbox:
   * List of messages sent/received by current logged in user. Consider color coding sent/received messages
@@ -19,3 +18,10 @@ Developed for Mobile Application Development, Spring 2024
  * User listing:
    * Shows ALL users in system, with option to block/unblock from user's messages
    * User should be able to view list of blocked users
+
+
+## Screenshots
+
+![image](https://github.com/j-sprague/emessageme/assets/73149971/84412734-e163-4c04-9dea-1de7914ee060)
+
+![image](https://github.com/j-sprague/emessageme/assets/73149971/7810732c-d5d1-4c2e-9ebe-9ce7bd286a51)
