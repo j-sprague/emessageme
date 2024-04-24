@@ -1,8 +1,13 @@
 # emessageme
-Android Email-Like Messaging app powered by Firebase
+Android Email-Like Messaging app powered by Firebase. 
 
+When deploying, you must generate your own "google-services.json" file from creating a new Firebase project.
 
-## Requirements
+## TODO
+
+* Improve "replyTo" function. (Instead of duplicating message text from original message, associate it with Message IDs)
+
+## Features
 
 * Mailbox:
   * List of messages sent/received by current logged in user. Consider color coding sent/received messages
